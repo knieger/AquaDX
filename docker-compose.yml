@@ -18,7 +18,7 @@ services:
       - aqua_config:/app/config
       - aqua_data:/app/data
     entrypoint: ["/bin/sh", "-c"]
-    command: ["ls -la /app/config]
+    command: ["ls -la /app/config"]
 
   db:
     image: mariadb:10.8.2
