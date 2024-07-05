@@ -15,8 +15,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./config:/app/config
-      - ./data:/app/data
+      - /data/compose/4/config:/app/config
+      - /data/compose/4/data:/app/data
 
   db:
     image: mariadb:10.8.2
