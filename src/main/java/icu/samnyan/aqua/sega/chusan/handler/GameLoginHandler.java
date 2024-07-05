@@ -47,7 +47,6 @@ public class GameLoginHandler implements BaseHandler {
     private static final Logger logger = LoggerFactory.getLogger(GameLoginHandler.class);
 
     public GameLoginHandler(StringMapper mapper,
-                            @Value("${game.chusan.loginbonus-enable:false}") boolean enableLoginBonus,
                             UserDataService userDataService,
                             UserItemService userItemService,
                             GameLoginBonusPresetService gameLoginBonusPresetService,
@@ -55,7 +54,7 @@ public class GameLoginHandler implements BaseHandler {
                             UserLoginBonusService userLoginBonusService
                             ) {
         this.mapper = mapper;
-        this.enableLoginBonus = enableLoginBonus;
+        this.enableLoginBonus = false;
         this.userDataService = userDataService;
         this.userItemService = userItemService;
         this.gameLoginBonusPresetService = gameLoginBonusPresetService;
