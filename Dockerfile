@@ -31,5 +31,7 @@ WORKDIR /app
 # Copy only the built JAR from the builder image
 COPY --from=builder /home/gradle/build/libs/AquaDX-*.jar /app/
 
+COPY config /app/config
+
 # The command to run the application
 CMD java -jar AquaDX-*.jar
