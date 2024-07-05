@@ -1,5 +1,6 @@
 package icu.samnyan.aqua.sega.chusan.handler;
 
+import javax.annotation.PostConstruct;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import icu.samnyan.aqua.sega.general.BaseHandler;
 import icu.samnyan.aqua.sega.chusan.model.gamedata.GameLoginBonus;
@@ -43,6 +44,8 @@ public class GameLoginHandler implements BaseHandler {
 
     private final UserLoginBonusService userLoginBonusService;
 
+    private static final Logger logger = LoggerFactory.getLogger(GameLoginHandler.class);
+
     public GameLoginHandler(StringMapper mapper,
                             @Value("${game.chusan.loginbonus-enable:false}") boolean enableLoginBonus,
                             UserDataService userDataService,
@@ -60,6 +63,11 @@ public class GameLoginHandler implements BaseHandler {
         this.userLoginBonusService = userLoginBonusService;
     }
 
+    @PostConstruct
+    public void logConfigValues() {
+        logger.info("Enable Login Bonus: {}", enableLoginBonus);
+    }
+    
     @Override
     public String handle(Map<String, Object> request) throws JsonProcessingException {
         String userId = (String) request.get("userId");
