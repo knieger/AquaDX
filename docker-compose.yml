@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   app:
-    build: .
+    image: hykilpikonna/aquadx:latest
     ports:
       - "80:80"
       - "8443:8443"
@@ -15,8 +15,8 @@ services:
     depends_on:
       - db
     volumes:
-      - /data/compose/4/config:/app/config
-      - /data/compose/4/data:/app/data
+      - aqua_config:/app/config
+      - aqua_data:/app/data
 
   db:
     image: mariadb:10.8.2
