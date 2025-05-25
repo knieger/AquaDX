@@ -30,3 +30,5 @@ services:
 
 volumes:
   mariadb_data:
+  aqua_config:
+  aqua_data:
