@@ -14,8 +14,8 @@ services:
     depends_on:
       - db
     volumes:
-      - ./config:/app/config
-      - ./data:/app/data
+      - aqua_config:/app/config
+      - aqua_data:/app/data
   db:
     image: mariadb:latest
     environment:
